@@ -1,0 +1,158 @@
+.card {
+    height: 45rem;
+    width: 30rem;
+    position: relative;
+    perspective: 150rem;
+
+    &__side {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        transition: all 1s;
+        border-radius: .5rem;
+        overflow: hidden;
+        box-shadow: 0 .4rem 1.5rem rgba($color-black, .4);
+
+        &--back {
+            transform: rotateY(180deg);
+            font-weight: 300;
+            padding-top: 8rem;
+
+            span {
+                color: $color-white;
+                display: block;
+            }
+
+            .price {
+                font-size: 5rem;
+                margin-bottom: 8rem;
+            }
+        }
+
+        &__background {
+            height: 20rem;
+            background-size: cover;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            background-blend-mode: screen;
+        }
+
+        &__picture--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url("../resources/nat-5.jpg");
+        }
+
+        &__picture--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url("../resources/nat-6.jpg");
+        }
+
+        &__picture--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url("../resources/nat-7.jpg");
+        }
+
+        &__tour-points {
+            list-style-type: none;
+            margin-top: 4rem;
+            padding: 0;
+            text-align: center;
+
+            li:not(:last-child) {
+                border-bottom: 1px solid $color-grey-light-1;
+                margin-bottom: 1rem;
+            }
+        }
+
+        &--back--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            text-align: center;
+        }
+
+        &--back--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            text-align: center;
+        }
+
+        &--back--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            text-align: center;
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__heading {
+        text-transform: uppercase;
+        text-align: right;
+        font-size: 2.8rem;
+        font-weight: 300;
+        position: absolute;
+        top: 9.5rem;
+        right: 2rem;
+        color: $color-white;
+        width: 75%;
+    }
+
+    &__heading-span {
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 1rem;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .8), rgba($color-secondary-dark, .8));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .8), rgba($color-tertiary-dark, .8));
+        }
+    }
+
+    @include responsive(tablet-portrait) {
+        width: 95%;
+        margin-bottom: 6rem;
+        height: auto;
+        border-radius: .5rem;
+        box-shadow: 0 .1rem 1rem rgba($color-black, .4);
+
+        &__side {
+            position: static;
+            padding-bottom: 8rem;
+            box-shadow: none;
+
+            &__background {
+                height: 26rem;
+            }
+
+            &--back {
+                transform: rotateY(0);
+                font-weight: 300;
+                margin-top: -8rem;
+                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+
+                span {
+                    color: $color-white;
+                    display: block;
+                }
+
+                .price {
+                    font-size: 5rem;
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+    }
+}

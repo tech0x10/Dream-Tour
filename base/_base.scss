@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include responsive(tablet-landscape) {
+        font-size: 60%;
+    }
+
+    @include responsive(tablet-portrait) {
+        font-size: 50%;
+    }
+  
+}
+
+body {
+    font-size: 1.6rem;
+    padding: 3rem;
+    font-family: 'lato', sans-serif;
+    line-height: 1.7;
+    @include responsive(mobile){
+        padding: 0;
+      
+    }
+}

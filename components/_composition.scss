@@ -1,0 +1,68 @@
+.composition {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+
+
+    &__photo {
+        width: 50%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 1);
+        transition: all .3s;
+
+        @include responsive(tablet-portrait) {
+            width: 35%;
+        }
+
+        &--p1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include responsive(tablet-portrait) {
+                position: absolute;
+                top: 30%;
+                left: 20%;
+            }
+        }
+
+        &--p2 {
+            position: absolute;
+            top: 2rem;
+            left: 42%;
+
+            @include responsive(tablet-portrait) {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+            }
+        }
+
+        &--p3 {
+            position: absolute;
+            top: 10rem;
+            left: 19%;
+
+            @include responsive(tablet-portrait) {
+                position: absolute;
+                top: 30%;
+                left: 37%;
+            }
+        }
+
+        &:hover {
+            z-index: 1;
+            transform: scale(1.1);
+            box-shadow: 0 1rem 2rem rgba($color-black, .8);
+
+            @include responsive(tablet-portrait) {
+                transform: scale(1.1);
+                box-shadow: 0 .5rem 1rem rgba($color-black, .8);
+            }
+        }
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(.97);
+    }
+}
